@@ -33,7 +33,7 @@ app.get("/api/ping", async (req, res) => {
 app.use("/api", taskRoutes);
 app.use("/api", authRoutes);
 
-// Error Hander
+// Error Handler
 app.use((err, req, res, next) => {
   res.status(500).json({
     status: "error",
