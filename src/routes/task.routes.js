@@ -1,25 +1,15 @@
-import Router from "express-promise-router";
-import {
-    createTask,
-    deleteTask,
-    getAllTasks,
-    getTask,
-    updateTask,
-  } from "../controllers/tasks.controller.js";
-  import { isAuth } from "../middlewares/auth.middleware.js";
-  import { validateSchema } from "../middlewares/validate.middleware.js";
-  import { createTaskSchema, updateTaskSchema } from "../schemas/task.schema.js";
-
+import Router from "express";
+ 
 const router = Router();
 
-router.get("/tasks", isAuth, getAllTasks);
+router.get("/tasks", (req, res) => res.send("Getting tasks..."));
 
-router.get("/tasks/:id", isAuth, getTask);
+router.get("/tasks/:id", (req, res) => res.send("Getting task..."));
 
-router.post("/tasks", isAuth, validateSchema(createTaskSchema), createTask);
+router.post("/tasks", (req, res) => res.send("Creating task..."));
 
-router.put("/tasks/:id", isAuth, validateSchema(updateTaskSchema), updateTask);
+router.put("/tasks/:id", (req, res) => res.send("Updating task..."));
 
-router.delete("/tasks/:id", isAuth, deleteTask);
+router.delete("/tasks/:id", (req, res) => res.send("Deleting task..."));
 
 export default router;
